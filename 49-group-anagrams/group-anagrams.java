@@ -32,13 +32,15 @@
     public List<List<String>> groupAnagrams(String[] strs) {
         HashMap<String,List<String>> hm=new HashMap<>();
         for(String s:strs){
-            // int[] freq=new int[26];
-            // for(char ch:s.toCharArray()){
-            //     freq[ch-'a']++;
-            // }
-            char[] chars = s.toCharArray();
-            Arrays.sort(chars); 
-            String key= new String(chars);
+            int[] freq=new int[26];
+            for(char ch:s.toCharArray()){
+                freq[ch-'a']++;
+            }
+            
+            // char[] chars = s.toCharArray();
+            // Arrays.sort(chars); 
+            // String key= new String(chars);
+            String key=Arrays.toString(freq);
             if(!hm.containsKey(key)){
                 hm.put(key,new ArrayList<>());
             }
