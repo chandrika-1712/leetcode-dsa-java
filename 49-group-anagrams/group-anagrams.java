@@ -37,13 +37,13 @@
             //     freq[ch-'a']++;
             // }
             char[] chars = s.toCharArray();
-            Arrays.sort(chars);
-            String sorted = new String(chars);
-            // if(!hm.containsKey(key)){
-            //     hm.put(key,new ArrayList<>());
-            // }
-            // hm.get(key).add(s);
-            hm.computeIfAbsent(sorted,k->new ArrayList<>()).add(s);
+            Arrays.sort(chars); 
+            String key= new String(chars);
+            if(!hm.containsKey(key)){
+                hm.put(key,new ArrayList<>());
+            }
+            hm.get(key).add(s);
+            //hm.computeIfAbsent(sorted,k->new ArrayList<>()).add(s);
         }
         return new ArrayList<>(hm.values());
     }
