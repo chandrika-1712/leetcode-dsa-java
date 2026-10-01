@@ -3,15 +3,12 @@ class Solution {
         Arrays.sort(nums);
         int l=0;
         long sum=0;
-        long cost=0;
         int ans=1;
         for(int r=0;r<nums.length;r++){
            sum+=nums[r];
-           cost=(long)nums[r]*(r-l+1)-sum;
-           while(cost>k){
+           while((long)nums[r]*(r-l+1)-sum>k){
              sum-=nums[l];
              l++;
-             cost=(long)nums[r]*(r-l+1)-sum;
            }
            ans=Math.max(ans,r-l+1);
         }
